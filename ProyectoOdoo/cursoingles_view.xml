@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+<menuitem name="Control de Notas" id="notas_menu" sequence="90"/>
+<menuitem name="Datos generales" id="notas_menu_general" parent="notas_menu"/>
+<menuitem name="Alumnos" id="notas_alumnos_menu" parent="notas_menu_general" />
+<menuitem name="Cursos" id="notas_cursos_menu" parent="notas_menu_general" />
+<menuitem name="Evaluaciones" id="notas_evaluaciones_menu" parent="notas_menu_general" />
+<record model="ir.ui.view" id="notas_ingles_tree">
+<field name="name">ctrl_notas.ingles.tree</field>
+<field name="model">ctrl_notas.ingles</field>
+<field name="type">tree</field>
+<field name="arch" type="xml">
+<tree string="Cursos">
+<field name="numAlumno"/>
+<field name="nombre"/>
+<field name="dni"/>
+<field name="telefono"/>
+<field name="ingles"/>
+<field name="cur_ingles"/>
+</tree>
+</field>
+</record>
+
+<record model="ir.ui.view" id="notas_ingles_form">
+<field name="name">ctrl_notas.ingles.form</field>
+<field name="model">ctrl_notas.ingles</field>
+<field name="type">form</field>
+<field name="arch" type="xml">
+<form string="Cursos">
+<field name="numAlumno"/>
+<field name="nombre"/>
+<field name="dni"/>
+<field name="telefono"/>
+<field name="ingles"/>
+<field name="cur_ingles"/>
+</form>
+</field>
+</record>
+<record id="notas_ingles_action" model="ir.actions.act_window">
+<field name="name">CursosIngles</field>
+<field name="res_model">ctrl_notas.ingles</field>
+<field name="view_type">form</field>
+<field name="view_mode">tree,form</field>
+</record>
+
+<menuitem action="notas_ingles_action" id="notas_ingles_menu" sequence="1" parent="notas_menu_general"/>
+</data>
+</openerp>
